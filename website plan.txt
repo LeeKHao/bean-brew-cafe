@@ -1,0 +1,15 @@
+HTML
+  ↓
+CSS
+  ↓
+JavaScript
+  ↓
+Git / GitHub
+  ↓
+Deploy website
+  ↓
+Node.js backend
+  ↓
+Database
+  ↓
+Vue

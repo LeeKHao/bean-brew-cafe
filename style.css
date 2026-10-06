@@ -1,0 +1,242 @@
+/* General */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+
+/* Navigation */
+
+header {
+    background: #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    color: white;
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Hero */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url("image/cafe.jpeg");
+
+    background-size: cover;
+    background-position: bottom;
+}
+
+.hero-content {
+    color: white;
+    max-width: 700px;
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+
+/* Button */
+
+.button {
+    display: inline-block;
+
+    margin-top: 20px;
+    padding: 12px 25px;
+
+    background: #c58b52;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+}
+
+.button:hover {
+    background: #a96f3c;
+}
+
+
+/* Sections */
+
+section {
+    padding: 80px 20px;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 32px;
+}
+
+
+/* About */
+
+.about {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+
+/* Menu */
+
+.menu {
+    background: #f5f5f5;
+}
+
+.special-button {
+    display: block;
+    margin-left: 100px;
+}
+
+.menu-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.menu-item {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 8px;
+}
+
+
+/* Contact */
+
+.contact {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 30px;
+}
+
+input,
+textarea {
+    font-family: inherit;
+    font-size: 16px;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 12px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #222;
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #444;
+}
+
+
+/* Footer */
+
+footer {
+    padding: 25px;
+
+    background: #222;
+    color: white;
+
+    text-align: center;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .hero h2 {
+        font-size: 36px;
+    }
+
+    .menu-container {
+        grid-template-columns: 1fr;
+    }
+
+}
