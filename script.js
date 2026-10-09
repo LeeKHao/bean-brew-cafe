@@ -28,7 +28,7 @@ async function loadMenu() {
 
     try {
         const response = await fetch(
-            'http://localhost:3000/api/menu'
+            'http://10.141.34.55:3000/api/menu'
         );
 
         if (!response.ok) {
