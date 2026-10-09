@@ -27,9 +27,7 @@ async function loadMenu() {
     const menuContainer = document.getElementById('menu-container');
 
     try {
-        const response = await fetch(
-            'http://10.141.34.55:3000/api/menu'
-        );
+        const response = await fetch('https://bean-brew-backend.onrender.com/api/menu');
 
         if (!response.ok) {
             throw new Error('Failed to load menu');
