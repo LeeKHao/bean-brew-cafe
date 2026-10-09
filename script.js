@@ -1,47 +1,49 @@
-const form = document.querySelector("form");
+const postForm = document.getElementById("post-form");
 
-form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+if (postForm) {
+    postForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
 
-    const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        message: form.message.value
-    };
+        const name = document.getElementById("post-name").value.trim();
+        const content = document.getElementById("post-content").value.trim();
+        const message = document.getElementById("post-message");
+        const submitButton = document.getElementById("post-submit");
 
-    if (formData.name === "" || formData.email === "" || formData.message === "") {
-        alert("Please fill in all fields.");
-        return;
-    }
-    alert("Thank you, " + formData.name + "! Your message has been received.");
-    form.reset();
-    const result = document.getElementById("result");
+        if (!name || !content) {
+            message.textContent = "Please fill in both fields.";
+            return;
+        }
 
-  try {
-    const response = await fetch(
-      "http://localhost:3000/api/contact",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      }
-    );
+        submitButton.disabled = true;
+        message.textContent = "Submitting your post...";
 
-    const data = await response.json();
+        try {
+            // Apps Script can redirect its response. Using no-cors
+            // avoids browser CORS blocking, but means we cannot read
+            // the response or confirm that the server saved the post.
+            await fetch(SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8"
+                },
+                body: JSON.stringify({ name, content })
+            });
 
-    if (!response.ok) {
-      throw new Error(data.message || "Submission failed");
-    }
+            message.textContent =
+                "Your post was sent. Please allow time for review.";
 
-    result.textContent = data.message;
-    form.reset();
-  } catch (error) {
-    result.textContent = "Unable to send your message.";
-    console.error(error);
-  }
-});
+            postForm.reset();
+
+        } catch (error) {
+            console.error("Post submission failed:", error);
+            message.textContent =
+                "We couldn't send your post. Please try again.";
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+}
 
 const message = document.querySelector("#welcome-message");
 message.textContent = "Welcome! Enjoy your coffee.";

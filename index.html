@@ -61,11 +61,11 @@
         <p>123 Example Street, Melbourne</p>
         <p>Phone: 0400 000 000</p>
         <p>Email: hello@beanandbrew.com</p>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
+        <form id="post-form">
+            <input type="text" id="post-name" name="name" placeholder="Your Name" maxlength="40" required>
+            <textarea id="post-content" name="content"maxlength="1000" rows="5" placeholder="Your Message" rows="5" required></textarea>
+            <p id="post-message" role="status" aria-live="polite"></p>
+            <button type="submit" id="post-submit">Send Message</button>
         </form>
     </section>
 
