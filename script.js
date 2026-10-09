@@ -1,3 +1,4 @@
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKdcLXYCRCjXZGdeZ3eU1oU1YtqRdlUeag4qxXJsUu6un145ij_HZC3H3DyU8gTe0oSA/exec";
 const postForm = document.getElementById("post-form");
 
 if (postForm) {
@@ -53,9 +54,6 @@ const special = document.querySelector("#special");
 specialButton.addEventListener("click", function() {
     special.textContent = "Today's special: Iced Latte - $4.50";
 });
-
-
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyKdcLXYCRCjXZGdeZ3eU1oU1YtqRdlUeag4qxXJsUu6un145ij_HZC3H3DyU8gTe0oSA/exec";
 
 function loadMenu() {
     const menuContainer = document.getElementById("menu-container");
